@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Calcura is a modern responsive web calculator built using HTML, CSS and JavaScript."
+    >
+
+    <title>Calcura | Web Calculator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="theme-glass">
+
+    <main class="app">
+
+        <section class="calculator" aria-label="Calcura Calculator">
+
+            <!-- TOP BAR -->
+            <header class="top-bar">
+
+                <button
+                    type="button"
+                    class="icon-button history-button"
+                    id="historyButton"
+                    aria-label="Open calculation history"
+                >
+                    <span class="icon-clock">◷</span>
+                </button>
+
+                <div class="logo">
+                    CALCURA
+                
+                </div>
+
+                <button
+                    type="button"
+                    class="icon-button theme-button"
+                    id="themeButton"
+                    aria-label="Change theme"
+                >
+                    <span id="themeIcon">☾</span>
+                </button>
+
+            </header>
+
+
+            <!-- DISPLAY -->
+            <section class="display" aria-label="Calculator display">
+
+                <div class="display-header">
+                    <span>CALCULATION</span>
+
+                    <span
+                        id="displayStatus"
+                        class="display-status"
+                    >
+                        READY
+                    </span>
+                </div>
+
+                <div
+                    id="calculationDisplay"
+                    class="expression"
+                    aria-label="Current calculation"
+                ></div>
+
+                <div
+                    id="resultDisplay"
+                    class="result"
+                    aria-live="polite"
+                    aria-label="Current result"
+                >
+                    0
+                </div>
+
+            </section>
+
+
+            <!-- BUTTONS -->
+            <section
+                class="calculator-keys"
+                aria-label="Calculator buttons"
+            >
+
+                <button
+                    type="button"
+                    class="key key-ac"
+                    data-action="clear"
+                >
+                    AC
+                </button>
+
+                <button
+                    type="button"
+                    class="key key-back"
+                    data-action="backspace"
+                    aria-label="Backspace"
+                >
+                    ⌫
+                </button>
+
+                <button
+                    type="button"
+                    class="key key-function"
+                    data-action="percent"
+                >
+                    %
+                </button>
+
+                <button
+                    type="button"
+                    class="key key-operator"
+                    data-operator="÷"
+                >
+                    ÷
+                </button>
+
+
+                <button
+                    type="button"
+                    class="key"
+                    data-number="7"
+                >
+                    7
+                </button>
+
+                <button
+                    type="button"
+                    class="key"
+                    data-number="8"
+                >
+                    8
+                </button>
+
+                <button
+                    type="button"
+                    class="key"
+                    data-number="9"
+                >
+                    9
+                </button>
+
+                <button
+                    type="button"
+                    class="key key-operator"
+                    data-operator="×"
+                >
+                    ×
+                </button>
+
+
+                <button
+                    type="button"
+                    class="key"
+                    data-number="4"
+                >
+                    4
+                </button>
+
+                <button
+                    type="button"
+                    class="key"
+                    data-number="5"
+                >
+                    5
+                </button>
+
+                <button
+                    type="button"
+                    class="key"
+                    data-number="6"
+                >
+                    6
+                </button>
+
+                <button
+                    type="button"
+                    class="key key-operator"
+                    data-operator="−"
+                >
+                    −
+                </button>
+
+
+                <button
+                    type="button"
+                    class="key"
+                    data-number="1"
+                >
+                    1
+                </button>
+
+                <button
+                    type="button"
+                    class="key"
+                    data-number="2"
+                >
+                    2
+                </button>
+
+                <button
+                    type="button"
+                    class="key"
+                    data-number="3"
+                >
+                    3
+                </button>
+
+                <button
+                    type="button"
+                    class="key key-operator"
+                    data-operator="+"
+                >
+                    +
+                </button>
+
+
+                <button
+                    type="button"
+                    class="key key-zero"
+                    data-number="0"
+                >
+                    0
+                </button>
+
+                <button
+                    type="button"
+                    class="key"
+                    data-number="."
+                >
+                    .
+                </button>
+
+                <button
+                    type="button"
+                    class="key key-equals"
+                    data-action="calculate"
+                >
+                    =
+                </button>
+
+            </section>
+
+
+            <!-- FOOTER -->
+            <footer class="calculator-footer">
+                <span>HTML</span>
+                <span>•</span>
+                <span>CSS</span>
+                <span>•</span>
+                <span>JAVASCRIPT</span>
+
+                <span class="footer-divider"></span>
+
+                <strong>OASIS INFOBYTE</strong>
+            </footer>
+
+
+            <!-- HISTORY PANEL -->
+            <aside
+                class="history-panel"
+                id="historyPanel"
+                aria-label="Calculation history"
+            >
+
+                <div class="history-header">
+
+                    <div class="history-heading">
+
+                        <div class="history-icon">
+                            ◷
+                        </div>
+
+                        <div>
+                            <h2>
+                                History
+                                <span id="historyCount">(0)</span>
+                            </h2>
+
+                            <p>Last 5 calculations</p>
+                        </div>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="history-close"
+                        id="historyClose"
+                        aria-label="Close history"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="history-list"
+                    id="historyList"
+                ></div>
+
+
+                <button
+                    type="button"
+                    class="clear-history"
+                    id="clearHistory"
+                >
+                    <span>♜</span>
+                    Clear History
+                </button>
+
+            </aside>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
